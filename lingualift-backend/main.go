@@ -35,12 +35,6 @@ type FullResponse struct {
 	Errors       []Correction `json:"errors"`
 }
 
-type OpenAIRequest struct {
-	Model     string `json:"model"`
-	Prompt    string `json:"prompt"`
-	MaxTokens int    `json:"max_tokens"`
-}
-
 type OpenAIResponse struct {
 	Choices []struct {
 		Message struct {
