@@ -1,0 +1,9 @@
+taki format json wyślijcie na back plz :)
+
+{
+  "user_input": {
+    "sentence": "I goed to the park yesturday.",
+    "language": "en"
+  }
+}
+
