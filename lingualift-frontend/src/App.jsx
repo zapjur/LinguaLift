@@ -8,7 +8,7 @@ function App() {
         <div className="container">
             <div className="video-section">
                 <div className="video-placeholder">
-                    <img src={cat} alt="kot" className="fota" />
+
                 </div>
             </div>
             <div className="chat-section">
