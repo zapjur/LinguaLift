@@ -11,10 +11,10 @@ const MicToggle = () => {
         <div style={styles.micToggleContainer}>
             <button onClick={handleClick}>
                 {isMicOn ? (
-                    <FaMicrophoneSlash size={40} color="purple" />
+                    <FaMicrophoneSlash size={40} color="BB86FC" />
 
                 ) : (
-                    <FaMicrophone size={40} color="purple" />
+                    <FaMicrophone size={40} color="BB86FC" />
                 )}
             </button>
         </div>
