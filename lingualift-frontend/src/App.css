@@ -55,21 +55,24 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-top: 4px solid black;
+    background-color: #121212;
 }
 .send-button{
   padding: 15px;
   margin-left: 60px;
   border-radius: 10px;
   box-shadow: #213547 0px 0px 5px;
+    background-color: #9c66ef;
 }
 
 .text-input{
   font-size: 21px;
-  width: 67%;
+  width: 63%;
   padding: 10px;
+  margin-left: 10px;
   box-shadow: #213547 0px 0px 5px;
-  border-radius: 10px;
+  border-radius: 20px;
+  background-color: whitesmoke;
 }
 
 
