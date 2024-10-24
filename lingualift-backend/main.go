@@ -160,11 +160,27 @@ You are helping a student learn %s. The student sent the following sentence: "%s
 
 }
 
+func corsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5137")
+		w.Header().Set("Access-Control-Allow-Methods", "POST")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		if r.Method == http.MethodOptions {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+		next.ServeHTTP(w, r)
+	})
+}
+
 func main() {
 
-	http.HandleFunc("/input", handleInput)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/input", handleInput)
+
+	handler := corsMiddleware(mux)
 
 	fmt.Println("Server is running on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", handler))
 
 }
