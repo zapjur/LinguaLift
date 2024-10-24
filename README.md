@@ -1,2 +1,2 @@
 projekcik frontu
-![image](https://github.com/user-attachments/assets/c1c4d293-4c92-4b7c-b970-e5a3ab1a7ce8)
+![image](https://github.com/user-attachments/assets/65b2afbe-0d8e-48bb-bc78-a8e2fc86e70f)
