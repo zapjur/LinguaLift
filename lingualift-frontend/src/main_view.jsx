@@ -1,5 +1,6 @@
 import MicToggle from "./MicToggle.jsx";
 import React from "react";
+import LanguageSelector from "./Buttons.jsx";
 
 
 const MainView = () => {
@@ -11,6 +12,7 @@ const MainView = () => {
                 </div>
             </div>
             <div className="chat-section">
+                <LanguageSelector />
                 <h3>Sekcja błędów?</h3>
                 <div className="chat-messages">
                     <ul>
