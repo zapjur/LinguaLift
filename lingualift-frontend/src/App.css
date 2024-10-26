@@ -1,65 +1,24 @@
+
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  justify-content: space-between;
-}
-
-.video-section {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1;
-
-}
-
-.fota{
-  width: 900px;
-  height: 700px;
-  margin-left: 20vh;
-}
-.chat-section {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-messages {
-  list-style-type: none;
-  padding: 0;
-}
-
-.chat-messages ul {
-  padding-left: 0;
-}
-
-.chat-messages li {
-  padding: 5px;
-}
-.chat-divider {
-  margin-top: 5vh;
-  border-left: 4px solid black;
-  height: 80vh;
-  position: absolute;
-  right: 120%;
-  top: 0;
-  transform: translateX(5px);
 }
 
 .input-section {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   padding: 15px;
+  margin-top: auto;
 }
 .input-buttons {
   display: flex;
-  gap: 6vh;
+  gap: 3vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
 
 }
 .send-button{
@@ -78,8 +37,36 @@
   font-size: 25px;
   line-height: 1.5;
   box-sizing: border-box;
+}
+.right-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: auto;
+  margin-right: 2em;
+  height: auto;
+  width: auto;
+  right: 0;
+  top: 7vh;
 
 }
+.language-selector {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  border-radius: 15px;
+}
+
+.language-label {
+  padding: 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 
 

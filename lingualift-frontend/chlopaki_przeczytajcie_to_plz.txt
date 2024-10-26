@@ -5,5 +5,4 @@ taki format json wyślijcie na back plz :)
     "sentence": "I goed to the park yesturday.",
     "language": "en"
   }
-}
-
+dzienki piotrek :)
