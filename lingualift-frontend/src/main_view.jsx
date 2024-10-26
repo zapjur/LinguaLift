@@ -1,10 +1,10 @@
 import MicToggle from "./MicToggle.jsx";
-import React from "react";
+import React, {useState} from "react";
 import LanguageSelector from "./Buttons.jsx";
 
 
-
 const MainView = () => {
+    const [language, setLanguage] = useState("en-US")
     const sendMessage = async () => {
         try {
             const response = await fetch('http://localhost:8000/chat_response', {
@@ -23,6 +23,11 @@ const MainView = () => {
             console.error('Error:', error);
         }
     };
+    const handleLanguageChange = (selectedLanguage) => {
+        setLanguage(selectedLanguage);
+        console.log(selectedLanguage);
+    }
+
     return (
         <div className="container">
             <div className="video-section">
@@ -31,23 +36,25 @@ const MainView = () => {
                 </div>
             </div>
             <div className="chat-section">
-                <LanguageSelector />
-                <h3>Sekcja błędów?</h3>
+                <LanguageSelector onLanguageChange={handleLanguageChange} />
+                <h3>Chat History/Mistakes Section</h3>
                 <div className="chat-messages">
                     <ul>
-                        <li>odmien być</li>
-                        <li>odmien być</li>
-                        <li>odmien być</li>
-                        <li>odmien być</li>
+                        <li>xdddddd</li>
+                        <li>xdddddd</li>
+                        <li>xdddddd</li>
+                        <li>xdddddd</li>
                     </ul>
                     <div className="chat-divider"></div>
                 </div>
             </div>
             <div className="input-section">
-                <input type="text" placeholder="Wpisz tu coś" className="text-input" />
-                <button className="send-button" onClick={sendMessage}>SEND</button>
-                {/* MicToggle component */}
-                <MicToggle />
+                <textarea placeholder="How was your day?" className="text-input"/>
+                <div className="input-buttons" >
+                    {/* MicToggle component */}
+                    <MicToggle language={language} />
+                    <button className="send-button" onClick={sendMessage}>SEND</button>
+                </div>
             </div>
         </div>
     );

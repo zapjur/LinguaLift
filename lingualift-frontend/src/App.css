@@ -50,30 +50,35 @@
   transform: translateX(5px);
 }
 
-
 .input-section {
   display: flex;
   align-items: center;
-  padding: 10px;
-    background-color: #121212;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 15px;
+}
+.input-buttons {
+  display: flex;
+  gap: 6vh;
+
 }
 .send-button{
-  padding: 15px;
-  margin-left: 60px;
   border-radius: 10px;
   box-shadow: #213547 0px 0px 5px;
-    background-color: #9c66ef;
+  background-color: #9c66ef;
 }
 
-.text-input{
-  font-size: 21px;
-  width: 63%;
-  padding: 10px;
-  margin-left: 10px;
-  box-shadow: #213547 0px 0px 5px;
-  border-radius: 20px;
-  background-color: whitesmoke;
-  color: black;
+.text-input {
+  border-radius: 10px;
+  width: 70%;
+  max-height: 15vh;
+  resize: none;
+  overflow-y: auto;
+  padding: 15px;
+  font-size: 25px;
+  line-height: 1.5;
+  box-sizing: border-box;
+
 }
 
 
