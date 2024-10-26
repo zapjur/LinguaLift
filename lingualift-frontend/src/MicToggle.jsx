@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaMicrophone, FaMicrophoneSlash } from 'react-icons/fa';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-const MicrophoneButton = (props) => {
+const MicrophoneButton = ({ language, onTranscriptChange }) => {
+    const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
     const [isMicOn, setIsMicOn] = useState(false);
-    const [transcript, setTranscript] = useState('');
-    const [recognition, setRecognition] = useState(null);
+    const [displayedTranscript, setDisplayedTranscript] = useState('');
+
+    if (!browserSupportsSpeechRecognition) {
+        return <span>Browser does not support speech recognition.</span>;
+    }
 
     const handleClick = () => {
         if (isMicOn) {
@@ -16,49 +21,33 @@ const MicrophoneButton = (props) => {
     };
 
     const startRecording = () => {
-        console.log(props.language + " from mic component");
-        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-        const newRecognition = new window.SpeechRecognition();
-        setRecognition(newRecognition);
-
-        newRecognition.interimResults = true;
-        newRecognition.lang = props.language;
-
-        newRecognition.onresult = (event) => {
-            const current = event.resultIndex;
-            const transcriptResult = event.results[current][0].transcript;
-            setTranscript(prevTranscript => prevTranscript + ' ' + transcriptResult);
-            console.log(transcriptResult);
-        };
-
-        newRecognition.onend = () => {
-            if (isMicOn) {
-                newRecognition.start();
-            }
-        };
-
-        newRecognition.onerror = (event) => {
-            console.error('Speech recognition error', event.error);
-        };
-
-        newRecognition.start();
+        setDisplayedTranscript('');
+        onTranscriptChange('');
+        SpeechRecognition.startListening({
+            continuous: true,
+            language: language
+        });
     };
 
     const stopRecording = () => {
-        if (recognition) {
-            recognition.stop();
-            setTranscript('');
-        }
+        SpeechRecognition.stopListening();
+        resetTranscript();
     };
+
+    useEffect(() => {
+        if (listening) {
+            setDisplayedTranscript(transcript);
+            onTranscriptChange(transcript);
+        }
+    }, [transcript, listening, onTranscriptChange]);
 
     return (
         <div>
             <button onClick={handleClick}>
                 {isMicOn ? (
-                    <FaMicrophone size={40} color="#BB86FC" />
+                    <FaMicrophone size={43} color="#BB86FC" />
                 ) : (
-                    <FaMicrophoneSlash size={40} color="#BB86FC" />
+                    <FaMicrophoneSlash size={43} color="#BB86FC" />
                 )}
             </button>
         </div>
