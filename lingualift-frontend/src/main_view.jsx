@@ -34,7 +34,7 @@ const MainView = () => {
         <div className="container">
             <div className="right-bar">
                 <LanguageSelector onLanguageChange={handleLanguageChange} />
-                {/* ARTUR TUTAJ PISZ CHAT :))) */}
+                {/* ARTUR TUTAJ PISZ CHAT :))) ~ chyba Juro | ARTUR PISZ GO W OSOBNYM KOMPONENCIE TAK JAK GADALISMY ~ Piotrek*/}
             </div>
             <div className="input-section">
                 <textarea

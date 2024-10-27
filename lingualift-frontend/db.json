@@ -1,22 +1,24 @@
 {
-  "user_input": {
-    "sentence": "I goed to the park yesturday.",
-    "language": "en"
-  },
-  "chat_response": {
-    "response_text": "I understand that you meant to say you went to the park. Did you enjoy your time there?"
-  },
-  "errors": [
-    {
-      "error": "goed",
-      "correction": "went",
-      "explanation": "The verb 'go' in the past tense is 'went', not 'goed'."
+  "input": {
+    "user_input": {
+      "sentence": "I goed to the park yesturday.",
+      "language": "en"
     },
-    {
-      "error": "yesturday",
-      "correction": "yesterday",
-      "explanation": "The correct spelling is 'yesterday'."
-    }
-  ]
+    "chat_response": {
+      "response_text": "I understand that you meant to say you went to the park. Did you enjoy your time there?"
+    },
+    "errors": [
+      {
+        "error": "goed",
+        "correction": "went",
+        "explanation": "The verb 'go' in the past tense is 'went', not 'goed'."
+      },
+      {
+        "error": "yesturday",
+        "correction": "yesterday",
+        "explanation": "The correct spelling is 'yesterday'."
+      }
+    ]
+  }
 }
 
