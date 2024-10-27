@@ -34,7 +34,8 @@ const MainView = () => {
         <div className="container">
             <div className="right-bar">
                 <LanguageSelector onLanguageChange={handleLanguageChange} />
-                {/* ARTUR TUTAJ PISZ CHAT :))) ~ chyba Juro | ARTUR PISZ GO W OSOBNYM KOMPONENCIE TAK JAK GADALISMY ~ Piotrek*/}
+                {/* ARTUR TUTAJ PISZ CHAT :))) ~ chyba Juro | ARTUR PISZ GO W OSOBNYM KOMPONENCIE TAK JAK GADALISMY ~ Piotrek
+                || tak w osobnym komponencie ale w tym divie xd d*/}
             </div>
             <div className="input-section">
                 <textarea
