@@ -78,7 +78,7 @@ export default ChatWindow;
     // Inline styles for the component
     const styles = {
         chatWindow: {
-            width: '100%',
+            width: '30rem',
             maxWidth: '40rem',
             margin: '1rem auto',
             padding: '1rem',
@@ -87,6 +87,7 @@ export default ChatWindow;
             backgroundColor: '#1e1e1e',
             boxShadow: '0 0 1rem rgba(0, 0, 0, 0.5)',
             color: '#e0e0e0',
+            overflow: 'auto',
         },
         chatTitle: {
             fontSize: '2rem',
