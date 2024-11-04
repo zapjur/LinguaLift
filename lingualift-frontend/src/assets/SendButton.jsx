@@ -13,6 +13,10 @@ const SendButton = ({transcript, language}) => {
     const onSend = async (e) => {
         e.preventDefault();
 
+        setUserInputs([]);
+        setChatResponses([]);
+        setAllErrors([]);
+
         // const data = {
         //     user_input: {
         //         sentence: transcript,

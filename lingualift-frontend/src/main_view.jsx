@@ -2,6 +2,7 @@ import MicToggle from "./MicToggle.jsx";
 import React, { useState } from "react";
 import LanguageSelector from "./LanguageSelector.jsx";
 import SendButton  from "./assets/SendButton.jsx";
+import ChatWindow from "./ChatWindow.jsx";
 
 const MainView = () => {
     const [language, setLanguage] = useState("en-US");
@@ -36,6 +37,7 @@ const MainView = () => {
                 <LanguageSelector onLanguageChange={handleLanguageChange} />
                 {/* ARTUR TUTAJ PISZ CHAT :))) ~ chyba Juro | ARTUR PISZ GO W OSOBNYM KOMPONENCIE TAK JAK GADALISMY ~ Piotrek
                 || tak w osobnym komponencie ale w tym divie xd d*/}
+                <ChatWindow />
             </div>
             <div className="input-section">
                 <textarea
