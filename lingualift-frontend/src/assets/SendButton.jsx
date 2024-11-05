@@ -1,18 +1,19 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { DataContext } from "../DataContext.jsx";
 
 
 const SendButton = ({transcript, language}) => {
-
+    const [loading, setLoading] = useState(false);
     const {
         setUserInputs,
         setChatResponses,
         setAllErrors,
     } = useContext(DataContext);
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     const onSend = async (e) => {
         e.preventDefault();
-
+        setLoading(true);
         setAllErrors([]);
 
         // const data = {
@@ -39,8 +40,11 @@ const SendButton = ({transcript, language}) => {
         //     console.log(jsonResponse);
         // } catch (error) {
         //     alert(error);
+        // } finally {
+        //     setLoading(false);
         // }
 
+        //   await delay(3000);
         fetch('http://localhost:8000/input')
             .then(response => {
                 if(!response.ok) {
@@ -65,10 +69,19 @@ const SendButton = ({transcript, language}) => {
             .catch(error => {
                 console.error('There has been a problem with your fetch operation:', error);
             })
+            .finally(() => {
+                setLoading(false);
+            } )
     };
 
     return (
-        <button className="send-button" onClick={onSend}>SEND</button>
+        <button
+            className="send-button"
+            onClick={onSend}
+            disabled={loading}
+        >
+            {loading ? "PENDING..." : "SEND"}
+        </button>
     )
 }
 export default SendButton;
