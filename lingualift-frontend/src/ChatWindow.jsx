@@ -14,13 +14,13 @@ const ChatWindow = () => {
                     onClick={() => setActiveTab('Rozmowa')}
                     className={`tabButton ${activeTab === 'Rozmowa' ? 'active' : ''}`}
                 >
-                    Rozmowa
+                    Chat
                 </button>
                 <button 
                     onClick={() => setActiveTab('Błędy')}
                     className={`tabButton ${activeTab === 'Błędy' ? 'active' : ''}`}
                 >
-                    Błędy
+                    Mistakes
                 </button>
             </div>
 
@@ -52,7 +52,7 @@ const ChatWindow = () => {
                     <div className="error-container">
                         {allErrors.length > 0 ? (
                             allErrors.map((error, index) => (
-                                <div key={index}>
+                                <div key={index} className="chuj">
                                     <p className="error-text">Mistakes: {error.error}</p>
                                     <p className="correction-text">Correction: {error.correction}</p>
                                     <p className="explanation-text">Explanation: {error.explanation}</p>

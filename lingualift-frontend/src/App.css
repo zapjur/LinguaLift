@@ -95,6 +95,7 @@
 .tabButton {
   padding: 0.5rem 1rem;
   margin: 0 0.5rem;
+  width: 100%;
   border: none;
   border-radius: 0.5rem;
   background-color: #444;
@@ -157,7 +158,7 @@
 }
 
 .error-text {
-  color: #fff;
+  color: #ff6b6b;
   font-size: 1.25rem;
 }
 
@@ -169,6 +170,13 @@
 .explanation-text {
   color: #bbb;
   font-size: 1.25rem;
+}
+
+.chuj {
+  background-color: #242424;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 
