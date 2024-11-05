@@ -1,22 +1,48 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DataContext } from './DataContext';
 
-const ChatWindow = () => {
+const ChatWindow = ({language}) => {
     const { userInputs, chatResponses, allErrors } = useContext(DataContext);
     const [activeTab, setActiveTab] = useState('Rozmowa');
 
+    const textToSpeech = (text) => {
+        if ("speechSynthesis" in window) {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+            }
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = language;
+            utterance.pitch = 0.8;
+            utterance.rate = 0.8;
+
+            utterance.onerror = (event) => {
+                console.error("Error occurred in speech synthesis:", event.error);
+            };
+
+            window.speechSynthesis.speak(utterance);
+        } else {
+            console.log("Text-to-Speech not supported in this browser.");
+        }
+    };
+
+    useEffect(() => {
+        if (chatResponses.length > 0) {
+            const latestResponse = chatResponses[chatResponses.length - 1].response_text;
+            textToSpeech(latestResponse);
+        }
+    }, [chatResponses, language]);
+
     return (
         <div className="chatWindow">
-
-            {/* Tab Buttons */}
             <div className="tabButtons">
-                <button 
+                <button
                     onClick={() => setActiveTab('Rozmowa')}
                     className={`tabButton ${activeTab === 'Rozmowa' ? 'active' : ''}`}
                 >
                     Rozmowa
                 </button>
-                <button 
+                <button
                     onClick={() => setActiveTab('Błędy')}
                     className={`tabButton ${activeTab === 'Błędy' ? 'active' : ''}`}
                 >
@@ -24,11 +50,9 @@ const ChatWindow = () => {
                 </button>
             </div>
 
-            {/* Conditionally Rendered Content */}
             <div>
                 {activeTab === 'Rozmowa' && (
                     <>
-                        {/* Displaying User Inputs */}
                         {userInputs.length > 0 ? (
                             userInputs.map((input, index) => (
                                 <p key={index} className="user-input">{input.sentence}</p>
@@ -37,7 +61,6 @@ const ChatWindow = () => {
                             <p className="placeholder">No user inputs yet</p>
                         )}
 
-                        {/* Displaying Chat Responses */}
                         {chatResponses.length > 0 ? (
                             chatResponses.map((response, index) => (
                                 <p key={index} className="chat-response">{response.response_text}</p>
