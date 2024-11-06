@@ -40,22 +40,24 @@ const ChatWindow = ({language, onSpeechStart, onSpeechEnd}) => {
     }, [chatResponses, language]);
 
     return (
-        <div className="chatWindow">
-            <div className="tabButtons">
-                <button
-                    onClick={() => setActiveTab('Rozmowa')}
-                    className={`tabButton ${activeTab === 'Rozmowa' ? 'active' : ''}`}
-                >
-                    Chat
-                </button>
-                <button
-                    onClick={() => setActiveTab('Błędy')}
-                    className={`tabButton ${activeTab === 'Błędy' ? 'active' : ''}`}
-                >
-                    Mistakes
-                </button>
-            </div>
+        <div className="chatWindowContainer">
+        {/* Tab Buttons */}
+        <div className="tabButtons">
+            <button
+                onClick={() => setActiveTab('Rozmowa')}
+                className={`tabButton ${activeTab === 'Rozmowa' ? 'active' : ''}`}
+            >
+                Chat
+            </button>
+            <button
+                onClick={() => setActiveTab('Błędy')}
+                className={`tabButton ${activeTab === 'Błędy' ? 'active' : ''}`}
+            >
+                Mistakes
+            </button>
+        </div>
 
+        <div className="chatWindow">
             <div>
                 {activeTab === 'Rozmowa' && (
                     <>
@@ -91,7 +93,8 @@ const ChatWindow = ({language, onSpeechStart, onSpeechEnd}) => {
                 )}
             </div>
         </div>
-    );
+    </div>
+);
 };
 
 export default ChatWindow;
