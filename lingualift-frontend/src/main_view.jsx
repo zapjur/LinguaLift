@@ -48,7 +48,7 @@ const MainView = () => {
                 />
                 <div className="input-buttons" >
                     <MicToggle language={language} onTranscriptChange={updateTranscript} />
-                    <SendButton transcript={transcript} language={language}/>
+                    <SendButton transcript={transcript} language={language} onTranscriptChange={updateTranscript}/>
                 </div>
             </div>
         </div>

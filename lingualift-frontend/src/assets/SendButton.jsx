@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import { DataContext } from "../DataContext.jsx";
 
 
-const SendButton = ({transcript, language}) => {
+const SendButton = ({transcript, language, onTranscriptChange}) => {
     const [loading, setLoading] = useState(false);
     const {
         setUserInputs,
@@ -16,13 +16,15 @@ const SendButton = ({transcript, language}) => {
         setLoading(true);
         setAllErrors([]);
 
-        // const data = {
-        //     user_input: {
-        //         sentence: transcript,
-        //         language: language,
-        //     },
-        // };
-        //
+        const data = {
+            user_input: {
+                sentence: transcript,
+                language: language,
+            },
+        };
+
+        onTranscriptChange('')
+
         // try {
         //     const res = await fetch('http://localhost:8080/input', {
         //         method: 'POST',
@@ -38,13 +40,22 @@ const SendButton = ({transcript, language}) => {
         //
         //     const jsonResponse = await res.json();
         //     console.log(jsonResponse);
+        //     const userInput = jsonResponse.user_input;
+        //     const chatResponse = jsonResponse.chat_response;
+        //     const errors = jsonResponse.errors;
+        //     setUserInputs((prevUserInputs) => [...prevUserInputs, userInput]);
+        //     setChatResponses((prevChatResponses) => [
+        //                     ...prevChatResponses,
+        //                     chatResponse,
+        //     ]);
+        //     setAllErrors((prevErrors) => [...prevErrors, ...errors]);
         // } catch (error) {
         //     alert(error);
         // } finally {
         //     setLoading(false);
         // }
 
-        //   await delay(3000);
+        //await delay(3000);
         fetch('http://localhost:8000/input')
             .then(response => {
                 if(!response.ok) {
