@@ -61,15 +61,12 @@ const ChatWindow = ({language, onSpeechStart, onSpeechEnd}) => {
                     <>
                         {userInputs.length > 0 ? (
                             userInputs.map((input, index) => (
-                                <p key={index} className="user-input">{input.sentence}</p>
-                            ))
-                        ) : (
-                            <p className="placeholder">No user inputs yet</p>
-                        )}
-
-                        {chatResponses.length > 0 ? (
-                            chatResponses.map((response, index) => (
-                                <p key={index} className="chat-response">{response.response_text}</p>
+                                <React.Fragment key={index}>
+                                    <p className="user-input">{input.sentence}</p>
+                                    {chatResponses[index] && (
+                                        <p className="chat-response">{chatResponses[index].response_text}</p>
+                                    )}
+                                </React.Fragment>
                             ))
                         ) : (
                             <p className="placeholder">No chat responses yet</p>
