@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LanguageSelector from "./LanguageSelector.jsx";
 import SendButton  from "./assets/SendButton.jsx";
 import ChatWindow from "./ChatWindow.jsx";
-import babkagif from "./assets/babka.gif";
+import babkagif from "./assets/babka_1.gif";
 import babkapng from "./assets/img.png";
 
 const MainView = () => {

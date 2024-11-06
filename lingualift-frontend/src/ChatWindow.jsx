@@ -15,6 +15,7 @@ const ChatWindow = ({language, onSpeechStart, onSpeechEnd}) => {
             utterance.lang = language;
             utterance.pitch = 0.8;
             utterance.rate = 0.8;
+
             utterance.onstart = () => {
                 if(onSpeechStart) onSpeechStart();
             };
