@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DataContext } from './DataContext';
 
-const ChatWindow = ({language}) => {
+const ChatWindow = ({language, onSpeechStart, onSpeechEnd}) => {
     const { userInputs, chatResponses, allErrors } = useContext(DataContext);
     const [activeTab, setActiveTab] = useState('Rozmowa');
 
@@ -16,6 +16,12 @@ const ChatWindow = ({language}) => {
             utterance.pitch = 0.8;
             utterance.rate = 0.8;
 
+            utterance.onstart = () => {
+                if(onSpeechStart) onSpeechStart();
+            };
+            utterance.onend = () => {
+                if(onSpeechEnd) onSpeechEnd();
+            };
             utterance.onerror = (event) => {
                 console.error("Error occurred in speech synthesis:", event.error);
             };
