@@ -5,7 +5,6 @@ import SendButton  from "./assets/SendButton.jsx";
 import ChatWindow from "./ChatWindow.jsx";
 import babkagif from "./assets/babka_1.gif";
 import babkapng from "./assets/img.png";
-
 const MainView = () => {
     const [language, setLanguage] = useState("en-US");
     const [transcript, setTranscript] = useState("");
@@ -41,26 +40,29 @@ const MainView = () => {
 
     return (
         <div className="container">
-
-            <div className="right-bar">
-                <LanguageSelector onLanguageChange={handleLanguageChange} />
-                {/* ARTUR TUTAJ PISZ CHAT :))) ~ chyba Juro | ARTUR PISZ GO W OSOBNYM KOMPONENCIE TAK JAK GADALISMY ~ Piotrek
-                || tak w osobnym komponencie ale w tym divie xd d*/}
-                <ChatWindow language={language} onSpeechStart={handleSpeechStart} onSpeechEnd={handleSpeechEnd}/>
+            <div className="top-container">
+                <div className="left-bar">
+                    <div className="gif">
+                        <img src = {imageSrc} alt="opis" className="img" />
+                    </div>
+                </div>
+                <div className="right-bar">
+                    <LanguageSelector onLanguageChange={handleLanguageChange} />
+                    <ChatWindow language={language} onSpeechStart={handleSpeechStart} onSpeechEnd={handleSpeechEnd}/>
+                </div>
             </div>
-            <div className="gif">
-                <img src = {imageSrc} alt="opis" className="img" />
-            </div>
-            <div className="input-section">
+            <div className="bottom-bar">
+                <div className="input-section">
                 <textarea
                     value = {transcript}
                     placeholder={placeholder}
                     className="text-input"
                     onChange={handleChange}
                 />
-                <div className="input-buttons" >
-                    <MicToggle language={language} onTranscriptChange={updateTranscript} />
-                    <SendButton transcript={transcript} language={language} onTranscriptChange={updateTranscript}/>
+                    <div className="input-buttons" >
+                        <MicToggle language={language} onTranscriptChange={updateTranscript} />
+                        <SendButton transcript={transcript} language={language} onTranscriptChange={updateTranscript}/>
+                    </div>
                 </div>
             </div>
         </div>

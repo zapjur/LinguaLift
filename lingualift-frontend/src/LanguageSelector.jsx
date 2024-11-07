@@ -11,7 +11,6 @@ const LanguageSelector = ({ onLanguageChange }) => {
     };
 
     return (
-        <div>
             <div className="language-selector">
                 <div className="language-label">
                     <input
@@ -52,7 +51,6 @@ const LanguageSelector = ({ onLanguageChange }) => {
                     <ReactCountryFlag countryCode="PL" svg style={{ width: '2rem', height: '2rem' }} className="country-flag" />
                 </div>
             </div>
-        </div>
     );
 };
 
