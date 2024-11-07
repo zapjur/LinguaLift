@@ -37,7 +37,7 @@ const ChatWindow = ({language, onSpeechStart, onSpeechEnd}) => {
             const latestResponse = chatResponses[chatResponses.length - 1].response_text;
             textToSpeech(latestResponse);
         }
-    }, [chatResponses, language]);
+    }, [chatResponses]);
 
     return (
         <div className="chatWindowContainer">
